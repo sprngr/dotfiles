@@ -1,4 +1,13 @@
-#bash aliases
-alias workspace='cd ~/workspace'
+#bash aliases & functions to make my life easier
+
+#allows me to easily jump to directories in my workspace
+function wk() { cd ~/workspace/"$@" ;}
+
+#git aliases
+alias git-po='git pull origin'
+alias git-su='git submodule update'
+
+#application aliases
 alias steam='steam-debian'
 alias plex='google-chrome localhost:32400/web/'
+
