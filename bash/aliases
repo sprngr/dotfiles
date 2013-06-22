@@ -1,0 +1,4 @@
+#bash aliases
+alias workspace='cd ~/workspace'
+alias steam='steam-debian'
+alias plex='google-chrome localhost:32400/web/'
