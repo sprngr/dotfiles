@@ -1,11 +1,16 @@
 #bash aliases & functions to make my life easier
 
+#jump to dotfiles
+alias dotfiles='cd ~/dotfiles/'
 #allows me to easily jump to directories in my workspace
 function wk() { cd ~/workspace/"$@" ;}
 
 #git aliases
 alias git-po='git pull origin'
 alias git-su='git submodule update'
+
+#create empty git repo w/ readme
+function mkgit() { mkdir "$@" && cd "$@" && touch README.md && git init && git add README.md ;}
 
 #application aliases
 alias steam='steam-debian'
