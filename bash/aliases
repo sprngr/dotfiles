@@ -1,5 +1,8 @@
 #bash aliases & functions to make my life easier
 
+#general use aliases
+alias cd..='cd ..'
+
 #jump to dotfiles
 alias dotfiles='cd ~/dotfiles/'
 #allows me to easily jump to directories in my workspace
@@ -15,7 +18,7 @@ function mkgit() { mkdir "$@" && cd "$@" && touch README.md && git init && git a
 #application aliases
 #alias steam='steam-debian'
 #alias plex='google-chrome localhost:32400/web/'
-alias teamspeak='~/apps/TeamSpeak3/ts3_client_runscript.sh'
+alias teamspeak='~/apps/TeamSpeak3/ts3client_runscript.sh'
 alias idea='~/apps/idea/bin/idea.sh'
 
 #functions
@@ -42,4 +45,19 @@ function extract () {
 
 function calc () { 
     echo "$*" | bc -l; 
+}
+
+##
+# vidsearch() searches Youtube for the string inputted and returns a VLC
+# playlist of the first page of results. Made from the script posted by
+# herringonrye.
+##
+function vidsearch() {
+    if [ $# -ne 1 ]
+        then
+        echo "Usage: vidsearch <search query>"
+        echo "Note: the query may need to be in between quotation marks if it contains more than one word."
+    fi
+
+    wget -qO - "https://www.youtube.com/results?search_query=${1// /+}" | egrep -o "watch\?v=\S{11}" | uniq | sed -r 's/(.*)/http:\/\/youtube\.com\/\1/' | vlc -
 }
