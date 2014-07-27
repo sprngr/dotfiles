@@ -1,0 +1,12 @@
+# Bash configuration
+# url github.com/sprngr/dotfiles
+
+# Compiled from many sources and years of usage
+
+source bash/path.sh
+source bash/env.sh
+source bash/completion.sh
+
+source bash/aliases.sh
+source bash/functions.sh
+source bash/prompt.sh
