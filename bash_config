@@ -3,10 +3,12 @@
 
 # Compiled from many sources and years of usage
 
-source bash/path.sh
-source bash/env.sh
-source bash/completion.sh
+dot=~/.dotfiles
 
-source bash/aliases.sh
-source bash/functions.sh
-source bash/prompt.sh
+source $dot/bash/path.sh
+source $dot/bash/env.sh
+source $dot/bash/completion.sh
+
+source $dot/bash/aliases.sh
+source $dot/bash/functions.sh
+source $dot/bash/prompt.sh
