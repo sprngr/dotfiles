@@ -1,4 +1,4 @@
 # Completion
 
 # Bash Git completion
-source lib/git-completion.sh
+source ~/.dotfiles/bash/lib/git-completion.sh

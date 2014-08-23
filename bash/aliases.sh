@@ -45,9 +45,9 @@ alias ....='cd ../../..'
 alias back='cd -'
 
 # ls 
-if ls --color -d . >/dev/null 2>&1; then
+if [ ls --color -d . >/dev/null 2>&1 ]; then
   alias ls='ls --color=auto'  # Linux
-elif ls -G -d . >/dev/null 2>&1; then
+elif [ ls -G -d . >/dev/null 2>&1 ]; then
   alias ls='ls -G'  # Mac OS X
 fi
 
