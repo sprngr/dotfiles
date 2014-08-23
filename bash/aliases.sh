@@ -95,9 +95,6 @@ alias :Q=' exit'
 alias :x=' exit'
 alias cd..='cd ..'
 
-# Easter Eggs
-alias fail='‎echo "(ﾉಥ益ಥ）ﾉ﻿ ┻━┻"'
-
 # Linux Application launchers
 if [ uname == 'Linux' ]; then
 	alias teamspeak='~/apps/TeamSpeak3/ts3client_runscript.sh'
