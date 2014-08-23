@@ -46,9 +46,9 @@ alias ....='cd ../../..'
 alias back='cd -'
 
 # ls 
-if [ ls --color -d . >/dev/null 2>&1 ]; then
+if ls --color -d . >/dev/null 2>&1; then
   alias ls='ls --color=auto'  # Linux
-elif [ ls -G -d . >/dev/null 2>&1 ]; then
+elif ls -G -d . >/dev/null 2>&1; then
   alias ls='ls -G'  # Mac OS X
 fi
 
@@ -94,6 +94,9 @@ alias :q=' exit'
 alias :Q=' exit'
 alias :x=' exit'
 alias cd..='cd ..'
+
+# Easter Eggs
+alias fail='‎(ﾉಥ益ಥ）ﾉ﻿ ┻━┻'
 
 # Linux Application launchers
 if [ uname == 'Linux' ]; then

@@ -14,7 +14,7 @@ export PATH=/usr/local/mysql/bin:$PATH
 if [ uname == 'Darwin' ]; then
 	#Update when we do JDK stuffs
 	#JAVA_HOME=
-	#export PATH=$PATH:$JAVA_HOME
+	export PATH=$PATH #:$JAVA_HOME
 else
 	# Ubuntu Ruby gem binaries
 	export PATH=/var/lib/gems/1.8/bin:$PATH
