@@ -15,7 +15,7 @@ main(){
 
   echo ">>> Installing dotfiles"
 
-  if [ ! -d "~/.bin"]; then
+  if [ ! -d "~/.bin" ]; then
     echo ">>> Creating ~/.bin directory"
     mkdir ~/.bin
   fi
@@ -33,6 +33,7 @@ main(){
     echo ">>> Setting up vim configuration"
 
     $(cd ~/.dotfiles && git submodule update --init)
+    cd ~
   fi
 
   echo ">>> Done"
