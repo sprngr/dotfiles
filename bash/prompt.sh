@@ -8,10 +8,6 @@ function __git_prompt {
   __git_ps1 " $GIT_PS1_PAIR%s" | sed 's/ \([+*]\{1,\}\)$/\1/'
 }
 
-function __name_and_server {
-	echo "$C`whoami`$W@$G`hostname -s` "
-}
-
 bash_prompt() {
 
   # regular colors
@@ -37,7 +33,7 @@ bash_prompt() {
   # reset
   local RESET="\[\033[0;37m\]"
 
-  PS1="\$(__name_and_server)$Y\W$G\$(__git_prompt)$RESET$ "
+  PS1="$C`whoami`$W@$G`hostname -s` $Y\W$G\$(__git_prompt)$RESET$ "
 
 }
 
