@@ -35,6 +35,8 @@ main(){
     $(cd ~/.dotfiles && git submodule update --init)
     cd ~
   fi
+  
+  source ~/$bash_config
 
   echo ">>> Done"
 }
