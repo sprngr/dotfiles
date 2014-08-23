@@ -9,7 +9,7 @@ function __git_prompt {
 }
 
 function __name_and_server {
-	echo "`whoami`@`hostname -s` "
+	echo "$C`whoami`$W@$G`hostname -s` "
 }
 
 bash_prompt() {
@@ -37,7 +37,7 @@ bash_prompt() {
   # reset
   local RESET="\[\033[0;37m\]"
 
-  PS1="$BC\$(__name_and_server)$Y\W$G\$(__git_prompt)$RESET$ "
+  PS1="\$(__name_and_server)$Y\W$G\$(__git_prompt)$RESET$ "
 
 }
 
