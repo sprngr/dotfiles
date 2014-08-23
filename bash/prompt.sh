@@ -33,7 +33,7 @@ bash_prompt() {
   # reset
   local RESET="\[\033[0;37m\]"
 
-  PS1="$C`whoami`$W@$G`hostname -s` $Y\W$G\$(__git_prompt)$RESET$ "
+  PS1="$C`whoami`$W@$R`hostname -s` [ $Y\W ] $G\$(__git_prompt)$RESET$ "
 
 }
 

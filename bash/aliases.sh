@@ -96,7 +96,7 @@ alias :x=' exit'
 alias cd..='cd ..'
 
 # Linux Application launchers
-if [ uname == 'Linux']; then
+if [ uname == 'Linux' ]; then
 	alias teamspeak='~/apps/TeamSpeak3/ts3client_runscript.sh'
 	alias idea='~/apps/idea/bin/idea.sh'
 fi
