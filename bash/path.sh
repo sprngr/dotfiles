@@ -1,22 +1,24 @@
 # Path
 
-# source 
-# Dotfile bins.
+# Local .bin dir
 export PATH=~/.bin:$PATH
 
 # So homebrew /usr/local/bin is preferrable to /usr/bin.
 export PATH=/usr/local/bin:$PATH
 
-# Ubuntu Ruby gem binaries
-export PATH=/var/lib/gems/1.8/bin:$PATH
-
 # MySQL
 export PATH=/usr/local/mysql/bin:$PATH
 
-# Conditional for Linux or Mac Java development
+# Conditional for Linux or Mac development
 if [ uname == 'Darwin' ]; then
-
+	#Update when we do JDK stuffs
+	#JAVA_HOME=
+	#export PATH=$PATH:$JAVA_HOME
 else
+	
+	# Ubuntu Ruby gem binaries
+	export PATH=/var/lib/gems/1.8/bin:$PATH
+
 	JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 	export PATH=$PATH:$JAVA_HOME
 fi
