@@ -11,14 +11,14 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
 
 # Conditional for Linux or Mac development
-#if [ uname == 'Darwin' ]; then
+if [ uname == 'Darwin' ]; then
 	#Update when we do JDK stuffs
 	#JAVA_HOME=
 	#export PATH=$PATH:$JAVA_HOME
-#else
+else
 	# Ubuntu Ruby gem binaries
-#	export PATH=/var/lib/gems/1.8/bin:$PATH
+	export PATH=/var/lib/gems/1.8/bin:$PATH
 
-#	JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-#	export PATH=$PATH:$JAVA_HOME
-#fi
+	JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+	export PATH=$PATH:$JAVA_HOME
+fi
