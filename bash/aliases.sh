@@ -96,7 +96,7 @@ alias :x=' exit'
 alias cd..='cd ..'
 
 # Easter Eggs
-alias fail='‎(ﾉಥ益ಥ）ﾉ﻿ ┻━┻'
+alias fail='‎echo "\[\033[0;31m\](ﾉಥ益ಥ）ﾉ﻿ ┻━┻\[\033[0;37m\]"'
 
 # Linux Application launchers
 if [ uname == 'Linux' ]; then
