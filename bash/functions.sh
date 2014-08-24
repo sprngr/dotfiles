@@ -15,14 +15,9 @@ reload(){
 # Utilities
 
 # Allows me to easily jump to directories in my workspace
-# Now with tab completions
-# http://fahdshariff.blogspot.com/2011/04/writing-your-own-bash-completion.html
-_wk() {
-  local cur=${COMP_WORDS[COMP_CWORD]}
-  COMPREPLY=( $(compgen -W "alpha beta bar baz" -- $cur) )
+wk() { 
   cd ~/workspace/"$1"
 }
-complete -F _wk wk
 
 # Create empty git repo w/ readme
 # Will be deprecated by mkgit project
