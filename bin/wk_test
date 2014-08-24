@@ -1,0 +1,10 @@
+#!/bin/bash
+
+_wk_test() {
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  local wkList=$(ls ~/workspace)
+  COMPREPLY=( $(compgen -W "crate-shell dotfiles" -- $cur) )
+  
+ # cd ~/workspace/$COMPREPLY
+}
+complete -F _wk_test wk_test
