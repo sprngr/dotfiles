@@ -16,8 +16,8 @@ main(){
   echo ">>> Installing dotfiles"
 
   if [ ! -d "~/.bin" ]; then
-    echo ">>> Creating ~/.bin directory"
-    mkdir ~/.bin
+    echo ">>> Setting up ~/.bin directory"
+    ln -s ~/.dotfiles/bin ~/.bin
   fi
 
   ln -s ~/.dotfiles/bash_config ~/${bash_config}
