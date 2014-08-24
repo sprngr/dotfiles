@@ -19,6 +19,15 @@ wk() {
   cd ~/workspace/"$1"
 }
 
+# New version with autocmplete (testing)
+_wk_test() {
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "crate-shell dotfiles" -- $cur) )
+
+  cd ~/workspace/$COMPREPLY
+}
+complete -F _wk_test wk_test
+
 # Create empty git repo w/ readme
 # Will be deprecated by mkgit project
 mkgit() { 
