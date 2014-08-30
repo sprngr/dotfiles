@@ -79,13 +79,6 @@ alias du1='du --max-depth=1'
 alias hist='history | grep'         # requires an argument
 alias pgg='ps -Af | grep'           # requires an argument
 
-# Safety features
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -I'                    # 'rm -i' prompts for every file
-alias ln='ln -i'
-alias cls=' echo -ne "\033c"'       # clear screen for real (it does not work in Terminology)
-
 # Make Bash error tolerant
 alias :q=' exit'
 alias :Q=' exit'
