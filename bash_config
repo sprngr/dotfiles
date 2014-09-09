@@ -13,3 +13,7 @@ source $df/bash/completion.sh
 source $df/bash/aliases.sh
 source $df/bash/functions.sh
 source $df/bash/prompt.sh
+
+if [ -a $df/bash/work_aliases.sh ]; then
+  source $df/bash/work_aliases.sh
+fi
