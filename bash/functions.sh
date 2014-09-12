@@ -62,7 +62,7 @@ function vidsearch() {
 # "o" = open pwd in Finder.
 # source https://github.com/henrik/dotfiles, modified for multiple OSes
 function o {
-  if [ uname == 'Darwin']; then
+  if [ $(uname) == 'Darwin' ]; then
     open ${@:-'.'}
   fi
 }
