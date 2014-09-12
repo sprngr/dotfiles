@@ -94,5 +94,5 @@ fi
 # Mac Application launchers
 if [ $(uname) == 'Darwin' ]; then
 	alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-	alias subl='/Applications/Sublime\ Text\ 2.app/Contents/MacOS/Sublime\ Text'
+	alias subl='/Applications/Sublime\ Text\ 2.app/Contents/MacOS/Sublime\ Text\ 2'
 fi
