@@ -86,13 +86,13 @@ alias :x=' exit'
 alias cd..='cd ..'
 
 # Linux Application launchers
-if [ uname == 'Linux' ]; then
+if [ $(uname) == 'Linux' ]; then
 	alias teamspeak='~/apps/TeamSpeak3/ts3client_runscript.sh'
 	alias idea='~/apps/idea/bin/idea.sh'
 fi
 
 # Mac Application launchers
-if [ uname == 'Darwin' ]; then
+if [ $(uname) == 'Darwin' ]; then
 	alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 	alias subl='/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text'
 fi
