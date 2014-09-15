@@ -131,3 +131,20 @@ todo() {
     printf "%s\n" "$*" >> "$HOME/.todo"
   fi
 }
+
+
+# Automatically prepends branch name to commit
+# Yells at you for using master
+bcommit() {
+  branch_name="$(git branch | grep ^\* | awk '{print $2}' | tr '[:lower:]' '[:upper:]')"
+
+  if [ $branch_name == 'MASTER' ]; then
+    echo ">>> Current branch is master"
+    echo ">>> Please move your changes to the appropriate branch"
+    echo ">>> Aborting commit"
+  else
+    commit_message="$branch_name $@"
+  fi
+
+   git commit -am"$commit_message"
+}
