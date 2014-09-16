@@ -124,7 +124,7 @@ todo() {
     > $HOME/.todo
   elif [[ "$1" == "-r" ]]; then
     nl -b a "$HOME/.todo"
-    printf "----------------------------\n"
+    echo -e "----------------------------\n"
     read -p "Type a number to remove: " number
     ex -sc "${number}d" "$HOME/.todo"
   else
