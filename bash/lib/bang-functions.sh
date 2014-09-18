@@ -25,7 +25,7 @@ fi
 # @url google.com
 g() {
 	query=$(echo $@ | tr '[:blank:]' '%20')
-	_browser https://encrypted.google.com/search?hl=en&q=$query
+	_browser "https://encrypted.google.com/search?hl=en&q=$query"
 }
 
 # @function yt
@@ -41,7 +41,7 @@ yt(){
 # @url github.com
 gh(){
 	query=$(echo $@ | tr '[:blank:]' '+')
-	_browser https://github.com/search?q=$query
+	_browser "https://github.com/search?q=$query"
 }
 
 # @function mdn
@@ -49,5 +49,5 @@ gh(){
 # @url developer.mozilla.org
 mdn(){
 	query=$(echo $@ | tr '[:blank:]' '+')
-	_browser https://developer.mozilla.org/en-US/search?q=$query
+	_browser "https://developer.mozilla.org/en-US/search?q=$query"
 }

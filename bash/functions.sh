@@ -148,4 +148,4 @@ _branch(){
 }
 
 # Includes bang-functions.sh
-source $DOTFILES/lib/bang-functions.sh
+source $DOTFILES/bash/lib/bang-functions.sh
