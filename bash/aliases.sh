@@ -37,7 +37,6 @@ alias gbm="git fetch origin master && git rebase origin/master"
 alias gsu='git submodule update'
 alias checkout='git checkout'
 alias pull='git pull'
-alias branch="echo $(git branch | grep ^\* | awk '{print $2}')"
 
 # Shell
 
@@ -99,3 +98,4 @@ if [ $(uname) == 'Darwin' ]; then
 	alias subl='/Applications/Sublime\ Text\ 2.app/Contents/MacOS/Sublime\ Text\ 2'
 	alias chrome='open -a /Applications/Google\ Chrome.app'
 fi
+
