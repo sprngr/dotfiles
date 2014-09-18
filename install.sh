@@ -3,6 +3,19 @@
 # Install various bash and vim config files from github.com/sprngr/dotfiles
 # Assumes you cloned to the .dotfiles directory at ~
 
+__dotfiles_dir(){
+  SOURCE="${BASH_SOURCE[0]}"
+  while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+  done
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  echo $DIR
+}
+
+DOTFILES="$(__dotfiles_dir)"
+
 # Bash config file
 if [ $(uname) == 'Darwin' ]; then
   bash_config='.bash_profile' # OS X
@@ -17,22 +30,22 @@ main(){
 
   if [ ! -d "~/.bin" ]; then
     echo ">>> Setting up ~/.bin directory"
-    ln -s ~/.dotfiles/bin ~/.bin
+    ln -s $DOTFILES/bin ~/.bin
   fi
 
-  ln -s ~/.dotfiles/bash_config ~/${bash_config}
+  ln -s $DOTFILES/bash_config ~/${bash_config}
 
   echo ">>> Setting bash configuration at $bash_config"
 
   # Vim Config
 
   if command -v vim >/dev/null 2>&1; then
-    ln -s ~/.dotfiles/vim ~/.vim
-    ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+    ln -s $DOTFILES/vim ~/.vim
+    ln -s $DOTFILES/vim/vimrc ~/.vimrc
     
     echo ">>> Setting up vim configuration"
 
-    $(cd ~/.dotfiles && git submodule update --init)
+    $(cd $DOTFILES && git submodule update --init)
     cd ~
   fi
   

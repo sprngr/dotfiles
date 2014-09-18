@@ -2,7 +2,7 @@
 # Aliases
 
 # Configuration Management
-alias dotfiles='cd ~/.dotfiles'
+alias dotfiles='cd $DOTFILES'
 
 # Git
 # source https://github.com/henrik/dotfiles
