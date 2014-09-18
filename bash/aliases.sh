@@ -1,12 +1,14 @@
 #!/bin/bash
 # Aliases
 
+# GLOBAL
+_BRANCH_NAME=""
+
 # Configuration Management
 alias dotfiles='cd ~/.dotfiles'
 
 # Git
 # source https://github.com/henrik/dotfiles
-alias g="git"
 alias gs="git status"
 alias gw="git show"
 alias gw^="git show HEAD^"
@@ -36,6 +38,9 @@ alias gba="git rebase --abort"
 alias gbc="git add -A && git rebase --continue"
 alias gbm="git fetch origin master && git rebase origin/master"
 alias gsu='git submodule update'
+alias checkout='git checkout'
+alias pull='git pull'
+alias branch="echo $(git branch | grep ^\* | awk '{print $2}')"
 
 # Shell
 
@@ -95,4 +100,5 @@ fi
 if [ $(uname) == 'Darwin' ]; then
 	alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 	alias subl='/Applications/Sublime\ Text\ 2.app/Contents/MacOS/Sublime\ Text\ 2'
+	alias chrome='open -a /Applications/Google\ Chrome.app'
 fi

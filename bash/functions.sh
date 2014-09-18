@@ -148,3 +148,33 @@ bcommit() {
 
    git commit -am"$commit_message"
 }
+
+bpush() {
+  branch_name="$(git branch | grep ^\* | awk '{print $2}')"
+
+  if [ $branch_name == 'MASTER' ]; then
+    echo ">>> Current branch is master"
+    echo ">>> Please move your changes to the appropriate branch"
+    echo ">>> Aborting commit"
+  fi
+
+   git push origin $branch_name
+}
+
+
+# !bang Functions
+# Inspired by duckduckgo
+# https://duckduckgo.com/bang.html
+
+g() {
+  query=$(echo $@ | tr '[:blank:]' '%20')
+  chrome "https://encrypted.google.com/search?hl=en&q=$query"
+}
+
+yt(){
+  query=$(echo $@ | tr '[:blank:]' '+')
+  chrome "https://youtube.com/results?search_query=$query"
+}
+
+#TODO
+#mdn,gh
