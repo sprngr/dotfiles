@@ -123,9 +123,9 @@ bcommit() {
     echo ">>> Aborting commit"
   else
     commit_message="$branch_name $@"
+    
+    git commit -am"$commit_message"
   fi
-
-  git commit -am"$commit_message"
 }
 
 # Appends current branch to push, accepts argument for push destination
@@ -138,9 +138,9 @@ bpush() {
     echo ">>> Current branch is master"
     echo ">>> Please move your changes to the appropriate branch"
     echo ">>> Aborting commit"
+  else
+    git push $1 $branch_name
   fi
-
-  git push $1 $branch_name
 }
 
 _branch(){
