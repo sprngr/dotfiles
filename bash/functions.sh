@@ -136,7 +136,7 @@ todo() {
 # Automatically prepends branch name to commit
 # Yells at you for using master
 bcommit() {
-  branch_name="$(git branch | grep ^\* | awk '{print $2}' | tr '[:lower:]' '[:upper:]')"
+  branch_name="$(_branch | tr '[:lower:]' '[:upper:]')"
 
   if [ $branch_name == 'MASTER' ]; then
     echo ">>> Current branch is master"
@@ -149,29 +149,34 @@ bcommit() {
    git commit -am"$commit_message"
 }
 
+# Appends current branch to push, accepts argument for push destination
+# Should set it so if not set, assume origin
 bpush() {
-  branch_name="$(git branch | grep ^\* | awk '{print $2}')"
+  branch_name="$(_branch)"
 
-  if [ $branch_name == 'MASTER' ]; then
+  if [ $branch_name == 'master' ]; then
     echo ">>> Current branch is master"
     echo ">>> Please move your changes to the appropriate branch"
     echo ">>> Aborting commit"
   fi
 
-   git push origin $branch_name
+   git push $1 $branch_name
 }
 
+_branch(){
+  git branch | grep ^\* | awk '{print $2}'
+}
 
 # !bang Functions
 # Inspired by duckduckgo
 # https://duckduckgo.com/bang.html
 
-#g() {
-#   query=$(echo $@ | tr '[:blank:]' '%20')
-#   chrome "https://encrypted.google.com/search?hl=en&q=$query"
-# }
+g() {
+  query=$(echo $@ | tr '[:blank:]' '%20')
+  chrome "https://encrypted.google.com/search?hl=en&q=$query"
+}
 
-yt(){
+_yt(){
   query=$(echo $@ | tr '[:blank:]' '+')
   chrome "https://youtube.com/results?search_query=$query"
 }
