@@ -4,8 +4,20 @@
 
 # Compiled from many sources and years of usage
 
-DOTFILES=~/.dotfiles
+__dotfiles_dir(){
+	SOURCE="${BASH_SOURCE[0]}"
+	while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+	DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+	SOURCE="$(readlink "$SOURCE")"
+	  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+	done
+	DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+	echo $DIR
+}
 
+DOTFILES="$(__dotfiles_dir)"
+
+# Importing all shell files
 source $DOTFILES/bash/path.sh
 source $DOTFILES/bash/env.sh
 source $DOTFILES/bash/completion.sh
@@ -14,6 +26,7 @@ source $DOTFILES/bash/aliases.sh
 source $DOTFILES/bash/functions.sh
 source $DOTFILES/bash/prompt.sh
 
+# Import work specific shell file, omitted via .gitignore
 if [ -a $DOTFILES/bash/work_aliases.sh ]; then
-  source $DOTFILES/bash/work_aliases.sh
+	source $DOTFILES/bash/work_aliases.sh
 fi

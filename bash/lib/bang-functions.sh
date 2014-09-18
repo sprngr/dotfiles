@@ -17,8 +17,10 @@ fi
 
 # Todo: function to dump list of available bang functions
 # possbily add some form of documentation listing
-# bang(){
-# }
+bang(){
+	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+	echo $DIR
+}
 
 # @function g
 # @site Google
