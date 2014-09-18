@@ -15,6 +15,7 @@ reload(){
 # Utilities
 
 # Allows me to easily jump to directories in my workspace
+# Will become deprecated by standalone bash script w/ autocomplete
 wk() { 
   cd ~/workspace/"$1"
 }
@@ -24,12 +25,12 @@ wk() {
 mkgit() { 
   mkdir "$1" && cd "$1" && echo "#$1" >> README.md
   git init && git add README.md
-  git commit -m "Initialized $1 repo with README.md"
+  git commit -m ">>> Initialized $1 repo with README.md"
 }
 
 # Simple math calculations
-function calc () { 
-    echo "$*" | bc -l; 
+calc() { 
+  echo "$*" | bc -l; 
 }
 
 # vidsearch() searches Youtube for the string inputted and returns a VLC
@@ -37,23 +38,23 @@ function calc () {
 # Made from the script posted by herringonrye.
 # Modified by sprngr for usage in OSX and Linux
 # Requires wget (brew install wget)
-function vidsearch() {
-    if [ $# -ne 1 ]
-        then
-        echo "Usage: vidsearch <search query>"
-        echo "Note: the query may need to be in between quotation marks if it contains more than one word."
-    fi
+vidsearch() {
+  if [ $# -ne 1 ]
+    then
+    echo "Usage: vidsearch <search query>"
+    echo "Note: the query may need to be in between quotation marks if it contains more than one word."
+  fi
 
-    if command -v vlc; then
-      if [ uname == 'Darwin']; then
-        wget -qO - "https://www.youtube.com/results?search_query=${1// /+}" | egrep -o "watch\?v=\S{11}" | uniq | sed -E 's/(.*)/http:\/\/youtube\.com\/\1/' | vlc -
-      else
-        wget -qO - "https://www.youtube.com/results?search_query=${1// /+}" | egrep -o "watch\?v=\S{11}" | uniq | sed -r 's/(.*)/http:\/\/youtube\.com\/\1/' | vlc -
-      fi
+  if command -v vlc; then
+    if [ uname == 'Darwin']; then
+      wget -qO - "https://www.youtube.com/results?search_query=${1// /+}" | egrep -o "watch\?v=\S{11}" | uniq | sed -E 's/(.*)/http:\/\/youtube\.com\/\1/' | vlc -
     else
-      echo "bash: vlc command not found"
-      exit 1
+      wget -qO - "https://www.youtube.com/results?search_query=${1// /+}" | egrep -o "watch\?v=\S{11}" | uniq | sed -r 's/(.*)/http:\/\/youtube\.com\/\1/' | vlc -
     fi
+  else
+    echo "bash: vlc command not found"
+    exit 1
+  fi
 }
 
 # OS X only:
@@ -61,7 +62,7 @@ function vidsearch() {
 # "o http://example.com" = open URL in default browser.
 # "o" = open pwd in Finder.
 # source https://github.com/henrik/dotfiles, modified for multiple OSes
-function o {
+o() {
   if [ $(uname) == 'Darwin' ]; then
     open ${@:-'.'}
   fi
@@ -69,31 +70,31 @@ function o {
 
 # Create directory and cd to it.
 # source https://github.com/henrik/dotfiles
-function mcd {
+mcd() {
   mkdir -p "$1" && cd "$1"
 }
 
 # The following are sourced from https://wiki.archlinux.org/index.php/Bash#Functions
 
 # Extract any archive
-function extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)  tar xjf $1      ;;
-            *.tar.gz)   tar xzf $1      ;;
-            *.bz2)      bunzip2 $1      ;;
-            *.rar)      rar x $1        ;;
-            *.gz)       gunzip $1       ;;
-            *.tar)      tar xf $1       ;;
-            *.tbz2)     tar xjf $1      ;;
-            *.tgz)      tar xzf $1      ;;
-            *.zip)      unzip $1        ;;
-            *.Z)        uncompress $1   ;;
-            *)          echo "'$1' cannot be extracted via extract()" ;;
-        esac
-     else
+extract() {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)  tar xjf $1      ;;
+      *.tar.gz)   tar xzf $1      ;;
+      *.bz2)      bunzip2 $1      ;;
+      *.rar)      rar x $1        ;;
+      *.gz)       gunzip $1       ;;
+      *.tar)      tar xf $1       ;;
+      *.tbz2)     tar xjf $1      ;;
+      *.tgz)      tar xzf $1      ;;
+      *.zip)      unzip $1        ;;
+      *.Z)        uncompress $1   ;;
+      *)          echo "'$1' cannot be extracted via extract()" ;;
+      esac
+      else
         echo "'$1' is not a valid file"
-     fi
+      fi
 }
 
 # cd and ls in one
@@ -107,28 +108,6 @@ cl() {
     ls
   else
     echo "bash: cl: '$dir': Directory not found"
-  fi
-}
-
-# Simple todo list
-todo() {
-  if [[ ! -f $HOME/.todo ]]; then
-    touch "$HOME/.todo"
-  fi
-
-  if ! (($#)); then
-    cat "$HOME/.todo"
-  elif [[ "$1" == "-l" ]]; then
-    nl -b a "$HOME/.todo"
-  elif [[ "$1" == "-c" ]]; then
-    > $HOME/.todo
-  elif [[ "$1" == "-r" ]]; then
-    nl -b a "$HOME/.todo"
-    echo -e "----------------------------\n"
-    read -p "Type a number to remove: " number
-    ex -sc "${number}d" "$HOME/.todo"
-  else
-    printf "%s\n" "$*" >> "$HOME/.todo"
   fi
 }
 
@@ -146,11 +125,12 @@ bcommit() {
     commit_message="$branch_name $@"
   fi
 
-   git commit -am"$commit_message"
+  git commit -am"$commit_message"
 }
 
 # Appends current branch to push, accepts argument for push destination
-# Should set it so if not set, assume origin
+# TODO: Should be configured if not set, assume origin as default
+
 bpush() {
   branch_name="$(_branch)"
 
@@ -160,7 +140,7 @@ bpush() {
     echo ">>> Aborting commit"
   fi
 
-   git push $1 $branch_name
+  git push $1 $branch_name
 }
 
 _branch(){
@@ -170,16 +150,26 @@ _branch(){
 # !bang Functions
 # Inspired by duckduckgo
 # https://duckduckgo.com/bang.html
+# Sadly I cannot use ! to start a function, _ will have to do
+# but my sanity may not take it.
 
-g() {
-  query=$(echo $@ | tr '[:blank:]' '%20')
-  chrome "https://encrypted.google.com/search?hl=en&q=$query"
-}
+# will update to use default browser for OS (totally a thing right?)
 
-_yt(){
-  query=$(echo $@ | tr '[:blank:]' '+')
-  chrome "https://youtube.com/results?search_query=$query"
-}
+if [ $(uname) == 'Darwin' ]; then
+  _g() {
+    query=$(echo $@ | tr '[:blank:]' '%20')
+    o "https://encrypted.google.com/search?hl=en&q=$query"
+  }
 
-#TODO
-#mdn,gh
+  _yt(){
+    query=$(echo $@ | tr '[:blank:]' '+')
+    o "https://youtube.com/results?search_query=$query"
+  }
+
+  # # TODO
+  # _gh(){
+  # }
+
+  # _mdn(){
+  # }
+fi
