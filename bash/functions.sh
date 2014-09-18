@@ -166,10 +166,10 @@ bpush() {
 # Inspired by duckduckgo
 # https://duckduckgo.com/bang.html
 
-g() {
-  query=$(echo $@ | tr '[:blank:]' '%20')
-  chrome "https://encrypted.google.com/search?hl=en&q=$query"
-}
+#g() {
+#   query=$(echo $@ | tr '[:blank:]' '%20')
+#   chrome "https://encrypted.google.com/search?hl=en&q=$query"
+# }
 
 yt(){
   query=$(echo $@ | tr '[:blank:]' '+')

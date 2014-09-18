@@ -1,9 +1,6 @@
 #!/bin/bash
 # Aliases
 
-# GLOBAL
-_BRANCH_NAME=""
-
 # Configuration Management
 alias dotfiles='cd ~/.dotfiles'
 
