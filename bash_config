@@ -4,16 +4,16 @@
 
 # Compiled from many sources and years of usage
 
-df=~/.dotfiles
+DOTFILES=~/.dotfiles
 
-source $df/bash/path.sh
-source $df/bash/env.sh
-source $df/bash/completion.sh
+source $DOTFILES/bash/path.sh
+source $DOTFILES/bash/env.sh
+source $DOTFILES/bash/completion.sh
 
-source $df/bash/aliases.sh
-source $df/bash/functions.sh
-source $df/bash/prompt.sh
+source $DOTFILES/bash/aliases.sh
+source $DOTFILES/bash/functions.sh
+source $DOTFILES/bash/prompt.sh
 
-if [ -a $df/bash/work_aliases.sh ]; then
-  source $df/bash/work_aliases.sh
+if [ -a $DOTFILES/bash/work_aliases.sh ]; then
+  source $DOTFILES/bash/work_aliases.sh
 fi

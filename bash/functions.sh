@@ -123,7 +123,7 @@ bcommit() {
     echo ">>> Aborting commit"
   else
     commit_message="$branch_name $@"
-    
+
     git commit -am"$commit_message"
   fi
 }
@@ -147,29 +147,5 @@ _branch(){
   git branch | grep ^\* | awk '{print $2}'
 }
 
-# !bang Functions
-# Inspired by duckduckgo
-# https://duckduckgo.com/bang.html
-# Sadly I cannot use ! to start a function, _ will have to do
-# but my sanity may not take it.
-
-# will update to use default browser for OS (totally a thing right?)
-
-if [ $(uname) == 'Darwin' ]; then
-  _g() {
-    query=$(echo $@ | tr '[:blank:]' '%20')
-    o "https://encrypted.google.com/search?hl=en&q=$query"
-  }
-
-  _yt(){
-    query=$(echo $@ | tr '[:blank:]' '+')
-    o "https://youtube.com/results?search_query=$query"
-  }
-
-  # # TODO
-  # _gh(){
-  # }
-
-  # _mdn(){
-  # }
-fi
+# Includes bang-functions.sh
+source $DOTFILES/lib/bang-functions.sh
