@@ -2,7 +2,7 @@
 
 # Bang Functions
 # Author: sprngr
-# Inspired by duckduckgo's !bang functions
+# Inspired by duckduckgo's !bang commands
 # https://duckduckgo.com/bang.html
 
 # Sadly I cannot use ! to start a function name ;_;
