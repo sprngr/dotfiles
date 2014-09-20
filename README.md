@@ -10,6 +10,7 @@ Just an uploaded copy of my current dotfiles. Subject to change constantly.
 * git completion
 * custom prompt with awesome stuff
 * a partial reimplementation of DuckDuckGo's Bang Commands
+* a script that opens a random page to a lipsum generator
 
 
 Feel free to use anything from it!

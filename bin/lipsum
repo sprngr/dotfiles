@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# Lipsum
+# Author: sprngr <mike@sprngr.me>
+# Repo: github.com/sprngr/lipsum.sh
+# For those times when you need garbage text for any purpose
+
+if [ $(uname) == 'Darwin' ]; then
+	alias _browser='open';
+else
+	alias _browser='xdg-open';
+fi
+
+_lipsumArray=(
+	'http://lipsum.com'
+	'http://www.cupcakeipsum.com/'
+	'http://www.picksumipsum.co.uk/'
+	'http://lorizzle.nl/'
+	'http://slipsum.com/'
+	'http://www.fillerati.com/'
+	'http://baconipsum.com/'
+	'http://tunaipsum.com/'
+	'http://veggieipsum.com/'
+	'http://www.cheeseipsum.co.uk/'
+	'http://www.zombieipsum.com/'
+	'http://chrisvalleskey.com/fillerama/'
+	'http://www.pommyipsum.com/'
+	'http://beeripsum.com/'
+	'http://vaticanassass.in/'
+	'http://hipsum.co/'
+	'http://hairylipsum.com/'
+	'http://tlipsum.appspot.com/'
+	'http://www.commercekitchen.com/whedon-ipsum/'
+	'http://tvipsum.com/'
+	'http://www.catipsum.com/'
+	'http://web20ipsum.com/'
+	'http://www.niemanlab.org/journo-ipsum/'
+	'http://www.malevole.com/mv/misc/text/'
+	'http://www.elsewhere.org/pomo/'
+	'http://bluthipsum.com/'
+	'http://bavaria-ipsum.de/'
+	'http://www.buseyipsum.com/'
+	'http://baseballipsum.apphb.com/'
+	'http://pirateipsum.me/'
+	'http://spaceipsum.com/'
+	'http://www.lebowskiipsum.com/'
+	'http://trollemipsum.appspot.com/'
+	'http://maineripsum.com/'
+	'http://saganipsum.com/'
+	'http://skateipsum.com/'
+	'http://quoteipsum.com/'
+	'http://nyarth.net/ipsum/'
+	'http://obamaipsum.com/'
+	'http://www.fashionipsum.co.uk/'
+	'http://www.rikeripsum.com/#!/'
+	'http://www.cipsum.com/'
+	'http://gagipsum.com/'
+	'http://www.deloreanipsum.com/'
+	'http://www.swearemipsum.com/'
+	'http://boganipsum.com/'
+	'http://startupipsum.co/'
+	'http://downtonipsum.com/'
+	'http://heisenbergipsum.com/'
+	'http://yoloipsum.wordpress.com/'
+	'http://kiwipsum.com/'
+	'http://hodoripsum.com/'
+	'http://www.oliviaabtahi.com/mischiefmanaged/'
+	'http://appleipsum.com/'
+	);
+
+
+if $($@)
+echo ${#_lipsumArray[@]}
+
+# echo ${#_lipsumArray[0]}

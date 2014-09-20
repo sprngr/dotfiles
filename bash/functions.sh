@@ -147,5 +147,16 @@ _branch(){
   git branch | grep ^\* | awk '{print $2}'
 }
 
+# Custom Functions when feeling lazy
+
+# Background music
+music(){
+  if [ $(uname) == 'Darwin' ]; then
+
+    # Nujabes, Fat Jon, MF DOOM, and other things in that vein
+    o "https://www.youtube.com/watch?v=c3fZ8LXNs_E&list=PLB1sd3sGSGbxpPK70WivgkaMPJdnyrsPQ"
+  fi
+}
+
 # Includes bang-functions.sh
 source $DOTFILES/bash/lib/bang-functions.sh
