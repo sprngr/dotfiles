@@ -4,6 +4,7 @@ A living package of my shell/OS configurations. Subject to change constantly (al
 
 ### Features
 * vim configurations
+	* if you're on linux, make sure `vim` is installed before running the installer
 * bash aliases for everything
 * way too many functions
 * environment settings
@@ -67,6 +68,8 @@ From there you need to change your default shell
 $ chsh -s /usr/local/Cellar/bash/4.3.18/bin/bash $USER
 ```
 
-Restart your terminal and bam, new bash.
+Restart your terminal and bam, echo `$BASH_VERSION_MAJOR` to verify that it is greater than 3.
+
+Congrats, you have installed a new `bash`.
 
 

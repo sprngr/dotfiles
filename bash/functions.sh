@@ -65,6 +65,8 @@ vidsearch() {
 o() {
   if [ $(uname) == 'Darwin' ]; then
     open ${@:-'.'}
+  else
+    xdg-open ${@:-'.'}
   fi
 }
 
