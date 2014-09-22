@@ -23,7 +23,6 @@ fi
 	echo $DIR
 }
 
-# @function g
 # @site Google
 # @url google.com
 :g() {
@@ -31,7 +30,6 @@ fi
 	_browser "https://encrypted.google.com/search?hl=en&q=$query"
 }
 
-# @function yt
 # @site YouTube
 # @url youtube.com
 :yt(){
@@ -39,7 +37,6 @@ fi
 	_browser "https://youtube.com/results?search_query=$query"
 }
 
-# @function gh
 # @site GitHub
 # @url github.com
 :gh(){
@@ -47,7 +44,6 @@ fi
 	_browser "https://github.com/search?q=$query"
 }
 
-# @function mdn
 # @site Mozilla Developer Network
 # @url developer.mozilla.org
 :mdn(){
