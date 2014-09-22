@@ -6,6 +6,7 @@
 # https://duckduckgo.com/bang.html
 
 # Sadly I cannot use ! to start a function name ;_;
+# We use : as a prefix instead so we do not accidentally impede upon any existing functions
 
 
 # defines what to use to open urls based on OS
@@ -17,7 +18,7 @@ fi
 
 # Todo: function to dump list of available bang functions
 # possbily add some form of documentation listing
-bang(){
+:bang(){
 	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 	echo $DIR
 }
@@ -25,7 +26,7 @@ bang(){
 # @function g
 # @site Google
 # @url google.com
-g() {
+:g() {
 	query=$(echo $@ | tr '[:blank:]' '%20')
 	_browser "https://encrypted.google.com/search?hl=en&q=$query"
 }
@@ -33,7 +34,7 @@ g() {
 # @function yt
 # @site YouTube
 # @url youtube.com
-yt(){
+:yt(){
 	query=$(echo $@ | tr '[:blank:]' '+')
 	_browser "https://youtube.com/results?search_query=$query"
 }
@@ -41,7 +42,7 @@ yt(){
 # @function gh
 # @site GitHub
 # @url github.com
-gh(){
+:gh(){
 	query=$(echo $@ | tr '[:blank:]' '+')
 	_browser "https://github.com/search?q=$query"
 }
@@ -49,7 +50,7 @@ gh(){
 # @function mdn
 # @site Mozilla Developer Network
 # @url developer.mozilla.org
-mdn(){
+:mdn(){
 	query=$(echo $@ | tr '[:blank:]' '+')
 	_browser "https://developer.mozilla.org/en-US/search?q=$query"
 }
