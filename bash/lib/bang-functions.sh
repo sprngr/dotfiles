@@ -33,25 +33,35 @@ fi
 
 
 # @name DuckDuckGo Bang
-# @url ddg.com/q?=!
-# @define Allows you to use DuckDuckGo any !bang not defined
+# @url duckduckgo.com
+# @define Allows you to use any DuckDuckGo !bang command
 # @type utility
-# @usage :: <!bang> [query]
+# @usage :: <bang> [query]
 ::(){
-	query=$(echo $@ | tr '[:blank:]' '%20')
-	_browser "https://duckduckgo.com/q?=!$query"
+	# Require one parameter
+	if [ $# -lt 1 ]; then
+		echo "Requires at least one parameter (bang function)"
+		echo "Usage Example: :: g search query"
+		echo "Translates To: !g search query"
+	else
+		query=$(echo $@ | sed 's/^!//g' |sed 's/\ /\%20/g')
+		_browser "https://duckduckgo.com/?q=!$query"
+	fi
+	
 }
 
 # Todo: function to dump list of available bang functions
 # possbily add some form of documentation listing
+
 # @name Bang
 # @url none
 # @define Prints out information for all of the avaiable bang functions
 # @type utility
 # @usage :bang
 :bang(){
-	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-	echo $DIR
+	# Targets only documentation and function names
+	# ^(#\ @|:)[A-z :]*
+	grep -E '^(#\ @|:)[A-z :\.\<\>]*' $BASH_SOURCE
 }
 
 # @name Google
@@ -60,7 +70,7 @@ fi
 # @type search
 # @usage :g [query]
 :g() {
-	query=$(echo $@ | tr '[:blank:]' '%20')
+	query=$(echo $@ | sed 's/\ /\%20/g')
 	_browser "https://encrypted.google.com/search?hl=en&q=$query"
 }
 
