@@ -25,7 +25,8 @@ wk() {
 mkgit() { 
   mkdir "$1" && cd "$1" && echo "#$1" >> README.md
   git init && git add README.md
-  git commit -m ">>> Initialized $1 repo with README.md"
+  git commit -m "Initialized $1 repo with README.md"
+  echo ">>> Initialized $1 repo with README.md"
 }
 
 # Simple math calculations
