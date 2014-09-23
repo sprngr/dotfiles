@@ -1,6 +1,6 @@
-# Mike's dotfiles
+# dotfiles
 
-A living package of my shell/OS configurations. Subject to change constantly (almost daily).
+*nix enviornment configuration. A living package of my shell/OS configurations. Subject to change constantly (almost daily).
 
 ### Features
 * vim configurations
