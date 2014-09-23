@@ -12,6 +12,8 @@ A living package of my shell/OS configurations. Subject to change constantly (al
 * custom prompt with awesome stuff
 * a partial reimplementation of DuckDuckGo's Bang Commands
 * a script that opens a random page to a lipsum generator
+* script for homebrew to simplify starting services via launchctl, out of the box support for any formula which implements \#startup_plist.
+	* Source: https://gist.github.com/jodosha/2365430
 
 
 Feel free to use anything from it!
