@@ -136,22 +136,22 @@ branch:commit() {
   fi
 }
 
-# Appends current branch to push, accepts argument for push destination
-# TODO: Should be configured if not set, assume origin as default
-
+# Inserts branch name into the push command, accepts first argument for push destination
 branch:push() {
   branch_name="`_branch`"
 
-  if [ -z "$1" ]; then
-    1="origin"
+  if [ -n "$1" ]; then
+    remote="origin"
+  else
+    remote="$1"
   fi
-  
+
   if [ $branch_name == 'master' ]; then
     echo ">>> Current branch is master"
     echo ">>> Please move your changes to the appropriate branch"
     echo ">>> Aborting commit"
   else
-    git push $1 $branch_name
+    git push $remote $branch_name
   fi
 }
 
