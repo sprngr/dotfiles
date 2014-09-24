@@ -114,10 +114,15 @@ cl() {
   fi
 }
 
+# Returns the branch name as a string
+# Restrict to use within other functions
+_branch(){
+  git branch | grep ^\* | awk '{print $2}'
+}
 
 # Automatically prepends branch name to commit
 # Yells at you for using master
-bcommit() {
+branch:commit() {
   branch_name="$(_branch | tr '[:lower:]' '[:upper:]')"
 
   if [ $branch_name == 'MASTER' ]; then
@@ -134,9 +139,13 @@ bcommit() {
 # Appends current branch to push, accepts argument for push destination
 # TODO: Should be configured if not set, assume origin as default
 
-bpush() {
-  branch_name="$(_branch)"
+branch:push() {
+  branch_name="`_branch`"
 
+  if [ -z "$1" ]; then
+    1="origin"
+  fi
+  
   if [ $branch_name == 'master' ]; then
     echo ">>> Current branch is master"
     echo ">>> Please move your changes to the appropriate branch"
@@ -146,8 +155,11 @@ bpush() {
   fi
 }
 
-_branch(){
-  git branch | grep ^\* | awk '{print $2}'
+# Copies branch name to clipboard
+branch:copy(){
+  branch_name=`_branch`;
+  _branch | pbcopy
+  echo "Copied '$branch_name' to the clipboard"
 }
 
 # Custom Functions when feeling lazy
