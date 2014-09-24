@@ -72,6 +72,17 @@ $ chsh -s /usr/local/Cellar/bash/4.3.18/bin/bash $USER
 
 Restart your terminal and bam, echo `$BASH_VERSION_MAJOR` to verify that it is greater than 3.
 
-Congrats, you have installed a new `bash`.
+Congrats, you have installed a new `bash` on OS X.
+
+## Personal App Notes
+
+For SublimeText we use our own [Spacegray-Monokai](https://github.com/sprngr/spacegray-monokai) theme package.
+
+### OSX specific
+
+Swap terminal package with [iTerm2](http://iterm2.com/).
+
+For Mou we use the [base16](https://github.com/chriskempson/base16-mou) theme package.
+
 
 
