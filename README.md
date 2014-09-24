@@ -1,4 +1,4 @@
-# dotfiles
+# Dotfiles (Michael Springer)
 
 *nix enviornment configuration. A living package of my shell/OS configurations. Subject to change constantly (almost daily).
 
