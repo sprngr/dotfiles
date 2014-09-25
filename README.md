@@ -78,9 +78,9 @@ In order to save ourselves time during upgrades, we will symlink it to `/bin/bas
 $ sudo ln -s /usr/local/Cellar/bash/4.3.25/bin/bash /bin/bash-brew
 ```
 
-This then needs appended to the end of `/etc/shells` (requires sudo and your preferred editor).
+Next, `/bin/bash-brew` needs to be appended to the end of `/etc/shells` (requires sudo and your preferred editor).
 
-From there you need to change your default shell
+From there you need to change your default shell to the new one we added.
 
 ```bash
 $ chsh -s /bin/bash-brew $USER
