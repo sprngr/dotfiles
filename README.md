@@ -90,7 +90,7 @@ Restart your terminal and bam, echo `$BASH_VERSION` to verify it is successfully
 
 Congrats, you have installed a new `bash` on OS X.
 
-If you ever have to upgrade via brew, just remember to update the symlink to `/bin/bash-brew`
+If you ever have to upgrade via `brew`, just remember to update the symlink to `/bin/bash-brew`
 
 ## Personal App Notes
 
