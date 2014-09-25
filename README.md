@@ -29,7 +29,7 @@ $ git clone git@github.com:sprngr/dotfiles.git ~/.dotfiles
 
 ### Brew
 
-For OS X we requrie `brew` for a lot of packages.
+For OS X we require `brew` for a lot of packages.
 
 #### Installing brew
 
@@ -51,14 +51,14 @@ Current list of packages installed via `brew`:
 Anytime you need to update a package managed by `brew`, run the following:
 
 ```bash
-$ brew update # Updates brew's package listings
-$ brew oudated # Tells you what packages are outdated
-$ brew upgrade # Upgrades all packages installed
+$ brew update   # Updates brew's package listings
+$ brew oudated  # Tells you what packages are outdated
+$ brew upgrade  # Upgrades all packages installed
 ```
 
 #### Updating Bash
 
-Since OS X doesn't come with the most recent build of `bash`, we add it ourselves from brew.
+Since OS X doesn't come with the most recent build of `bash`, we add it ourselves from `brew`.
 
 ```bash
 $ brew install bash
@@ -89,6 +89,8 @@ $ chsh -s /bin/bash-brew $USER
 Restart your terminal and bam, echo `$BASH_VERSION` to verify it is successfully upgraded.
 
 Congrats, you have installed a new `bash` on OS X.
+
+If you ever have to upgrade via brew, just remember to update the symlink to `/bin/bash-brew`
 
 ## Personal App Notes
 
