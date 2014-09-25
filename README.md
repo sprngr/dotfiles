@@ -46,6 +46,16 @@ Current list of packages installed via `brew`:
 * readline
 * wget
 
+##### Updating Brew Packages
+
+Anytime you need to update a package managed by `brew`, run the following:
+
+```bash
+$ brew update # Updates brew's package listings
+$ brew oudated # Tells you what packages are outdated
+$ brew upgrade # Upgrades all packages installed
+```
+
 #### Updating Bash
 
 Since OS X doesn't come with the most recent build of `bash`, we add it ourselves from brew.
@@ -60,17 +70,23 @@ Then we need to find where `bash` lives
 $ brew ls bash
 ```
 
-We want the first line, at the time of writing it is `/usr/local/Cellar/bash/4.3.18/bin/bash`.
+We want the first line, at the time of writing it is `/usr/local/Cellar/bash/4.3.25/bin/bash`.
 
-This then needs appended to the end of `/etc/shells` (requires sudo).
+In order to save ourselves time during upgrades, we will symlink it to `/bin/bash-brew`
+
+```bash
+$ sudo ln -s /usr/local/Cellar/bash/4.3.25/bin/bash /bin/bash-brew
+```
+
+This then needs appended to the end of `/etc/shells` (requires sudo and your preferred editor).
 
 From there you need to change your default shell
 
 ```bash
-$ chsh -s /usr/local/Cellar/bash/4.3.18/bin/bash $USER
+$ chsh -s /bin/bash-brew $USER
 ```
 
-Restart your terminal and bam, echo `$BASH_VERSION_MAJOR` to verify that it is greater than 3.
+Restart your terminal and bam, echo `$BASH_VERSION` to verify it is successfully upgraded.
 
 Congrats, you have installed a new `bash` on OS X.
 
