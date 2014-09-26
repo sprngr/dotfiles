@@ -33,7 +33,13 @@ bash_prompt() {
   # reset
   local RESET="\[\033[0;37m\]"
 
-  PS1="[$B\T$W] $C`whoami`$W@$R`hostname -s` $W[$Y\w$W]$G\$(__git_prompt)\n$RESET$ "
+  # checks if I'm on my remote machine, makes it blatant
+  if [ $HOSTNAME == 'ps183864' ]; then
+    PS1="[$R REMOTE $W] $C`whoami`$W@$R`hostname -s` $W[$Y\w$W]$G\$(__git_prompt)\n$RESET$ "
+  else
+    PS1="[$B\T$W] $C`whoami`$W@$R`hostname -s` $W[$Y\w$W]$G\$(__git_prompt)\n$RESET$ "
+  fi
+  
 
 }
 
