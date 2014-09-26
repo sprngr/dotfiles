@@ -4,6 +4,8 @@
 if [ -s "$HOME/.rvm/scripts/rvm" ]; then 
 	# Unsetting GEM_HOME
 	unset GEM_HOME
+else
+	GEM_PATH=$GEM_HOME
 fi
 
 # Set vim as our default editor in the terminal
