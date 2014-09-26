@@ -13,6 +13,10 @@ export PATH=/usr/local/mysql/bin:$PATH
 # RVM
 export PATH=$HOME/.rvm/bin:$PATH
 
+# Ruby Gems
+
+export PATH=$HOME/.gems/bin:$PATH
+
 # Conditional for Linux or Mac development
 if [ uname == 'Darwin' ]; then
 	#Update when we do JDK stuffs
