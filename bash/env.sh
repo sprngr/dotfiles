@@ -1,8 +1,10 @@
 #!/bin/bash
 # Environment
 
-# Unsetting GEM_HOME
-unset GEM_HOME
+if [ -s "$HOME/.rvm/scripts/rvm" ]; then 
+	# Unsetting GEM_HOME
+	unset GEM_HOME
+fi
 
 # Set vim as our default editor in the terminal
 export EDITOR='vim'

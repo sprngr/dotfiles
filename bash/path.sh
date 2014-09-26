@@ -10,12 +10,15 @@ export PATH=/usr/local/bin:$PATH
 # MySQL
 export PATH=/usr/local/mysql/bin:$PATH
 
-# RVM
-export PATH=$HOME/.rvm/bin:$PATH
+if [ -s "$HOME/.rvm/scripts/rvm" ]; then 
+	# RVM
+	export PATH=$HOME/.rvm/bin:$PATH
 
-# Ruby Gems
+	# RVM Ruby Gems
 
-export PATH=$HOME/.gems/bin:$PATH
+	export PATH=$HOME/.gems/bin:$PATH
+
+fi
 
 # Conditional for Linux or Mac development
 if [ uname == 'Darwin' ]; then
