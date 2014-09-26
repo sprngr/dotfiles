@@ -1,6 +1,9 @@
 #!/bin/bash
 # Environment
 
+# Unsetting GEM_HOME
+unset GEM_HOME
+
 # Set vim as our default editor in the terminal
 export EDITOR='vim'
 

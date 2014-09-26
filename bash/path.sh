@@ -10,6 +10,9 @@ export PATH=/usr/local/bin:$PATH
 # MySQL
 export PATH=/usr/local/mysql/bin:$PATH
 
+# RVM
+export PATH=$HOME/.rvm/bin:$PATH
+
 # Conditional for Linux or Mac development
 if [ uname == 'Darwin' ]; then
 	#Update when we do JDK stuffs
@@ -20,5 +23,5 @@ else
 	export PATH=/var/lib/gems/1.8/bin:$PATH
 
 	JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-	export PATH=$PATH:$JAVA_HOME
+	export PATH=$JAVA_HOME:$PATH
 fi

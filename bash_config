@@ -30,3 +30,8 @@ source $DOTFILES/bash/prompt.sh
 if [ -a $DOTFILES/bash/work_aliases.sh ]; then
 	source $DOTFILES/bash/work_aliases.sh
 fi
+
+# Load RVM into a shell session
+if [ -s "$HOME/.rvm/scripts/rvm" ]; then 
+	source "$HOME/.rvm/scripts/rvm"
+fi
