@@ -25,7 +25,8 @@ wk() {
 mkgit() { 
   mkdir "$1" && cd "$1" && echo "#$1" >> README.md
   git init && git add README.md
-  git commit -m ">>> Initialized $1 repo with README.md"
+  git commit -m "Initialized $1 repo with README.md"
+  echo ">>> Initialized $1 repo with README.md"
 }
 
 # Simple math calculations
@@ -113,10 +114,15 @@ cl() {
   fi
 }
 
+# Returns the branch name as a string
+# Restrict to use within other functions
+_branch(){
+  git branch | grep ^\* | awk '{print $2}'
+}
 
 # Automatically prepends branch name to commit
 # Yells at you for using master
-bcommit() {
+branch:commit() {
   branch_name="$(_branch | tr '[:lower:]' '[:upper:]')"
 
   if [ $branch_name == 'MASTER' ]; then
@@ -130,23 +136,30 @@ bcommit() {
   fi
 }
 
-# Appends current branch to push, accepts argument for push destination
-# TODO: Should be configured if not set, assume origin as default
+# Inserts branch name into the push command, accepts first argument for push destination
+branch:push() {
+  branch_name="`_branch`"
 
-bpush() {
-  branch_name="$(_branch)"
+  if [ -n "$1" ]; then
+    remote="origin"
+  else
+    remote="$1"
+  fi
 
   if [ $branch_name == 'master' ]; then
     echo ">>> Current branch is master"
     echo ">>> Please move your changes to the appropriate branch"
     echo ">>> Aborting commit"
   else
-    git push $1 $branch_name
+    git push $remote $branch_name
   fi
 }
 
-_branch(){
-  git branch | grep ^\* | awk '{print $2}'
+# Copies branch name to clipboard
+branch:copy(){
+  branch_name=`_branch`;
+  _branch | pbcopy
+  echo "Copied '$branch_name' to the clipboard"
 }
 
 # Custom Functions when feeling lazy
