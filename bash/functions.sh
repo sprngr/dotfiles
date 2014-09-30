@@ -116,14 +116,14 @@ cl() {
 
 # Returns the branch name as a string
 # Restrict to use within other functions
-_branch(){
-  git branch | grep ^\* | awk '{print $2}'
+__branch(){
+  git branch | grep ^\* | awk '{print $2}' | tr -d '\n'
 }
 
 # Automatically prepends branch name to commit
 # Yells at you for using master
 branch:commit() {
-  branch_name="$(_branch | tr '[:lower:]' '[:upper:]')"
+  branch_name="$(__branch | tr '[:lower:]' '[:upper:]')"
 
   if [ $branch_name == 'MASTER' ]; then
     echo ">>> Current branch is master"
@@ -138,7 +138,7 @@ branch:commit() {
 
 # Inserts branch name into the push command, accepts first argument for push destination
 branch:push() {
-  branch_name="`_branch`"
+  branch_name="`__branch`"
 
   if [ -n "$1" ]; then
     remote="origin"
@@ -157,8 +157,8 @@ branch:push() {
 
 # Copies branch name to clipboard
 branch:copy(){
-  branch_name=`_branch`;
-  _branch | pbcopy
+  branch_name=`__branch`;
+  __branch | pbcopy
   echo "Copied '$branch_name' to the clipboard"
 }
 
