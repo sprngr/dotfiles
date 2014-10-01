@@ -12,8 +12,7 @@
 * custom prompt with awesome stuff
 * a partial reimplementation of DuckDuckGo's Bang Commands
 * a script that opens a random page to a lipsum generator
-* script for homebrew to simplify starting services via launchctl, out of the box support for any formula which implements \#startup_plist.
-	* Source: https://gist.github.com/jodosha/2365430
+* scripts for homebrew service management <https://github.com/mitchellnemitz/bash-brew-service>
 
 
 Feel free to use anything from it!
