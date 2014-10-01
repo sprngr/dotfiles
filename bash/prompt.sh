@@ -3,11 +3,9 @@
 # http://superuser.com/questions/31744/how-to-get-git-completion-bash-to-work-on-mac-os-x
 
 function __git_prompt {
-  if [ -d .git ]; then
-    GIT_PS1_SHOWDIRTYSTATE=1
-    [ `git config user.pair` ] && GIT_PS1_PAIR="`git config user.pair`@"
-    __git_ps1 " $GIT_PS1_PAIR%s" | sed 's/ \([+*]\{1,\}\)$/\1/'
-  fi
+  GIT_PS1_SHOWDIRTYSTATE=1
+  [ `git config user.pair` ] && GIT_PS1_PAIR="`git config user.pair`@"
+  __git_ps1 " $GIT_PS1_PAIR%s" | sed 's/ \([+*]\{1,\}\)$/\1/'
 }
 
 bash_prompt() {
