@@ -25,3 +25,6 @@
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "bin/bash-brew-service"]
+	path = bin/bash-brew-service
+	url = git@github.com:mitchellnemitz/bash-brew-service
