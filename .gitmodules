@@ -28,3 +28,6 @@
 [submodule "bin/bash-brew-service"]
 	path = bin/bash-brew-service
 	url = git@github.com:mitchellnemitz/bash-brew-service
+[submodule "bin/--force"]
+	path = bin/--force
+	url = git@github.com:sprngr/bash-brew-service.git
