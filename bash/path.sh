@@ -10,6 +10,13 @@ export PATH=/usr/local/bin:$PATH
 # MySQL
 export PATH=/usr/local/mysql/bin:$PATH
 
+# Heroku Toolbelt
+if [ -s "/usr/local/heroku/bin" ]; then
+
+	export PATH=/usr/local/heroku/bin:$PATH
+
+fi
+
 if [ -s "$HOME/.rvm/scripts/rvm" ]; then 
 	# RVM
 	export PATH=$HOME/.rvm/bin:$PATH
