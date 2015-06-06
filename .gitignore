@@ -1,3 +1,4 @@
 .DS_Store
 *.sublime-project
 bash/work_aliases.sh
+bin/pebble-dev
