@@ -18,6 +18,11 @@ if [ -s "/usr/local/heroku/bin" ]; then
 	export PATH=/usr/local/heroku/bin:$PATH
 fi
 
+# Pebble SDK 3.0
+if [ -s "$HOME/.bin/pebble-dev" ]; then
+	export PATH=$HOME/.bin/pebble-dev/PebbleSDK-3.0/bin:$PATH
+fi
+
 if [ -s "$HOME/.rvm/scripts/rvm" ]; then 
 	# RVM
 	export PATH=$HOME/.rvm/bin:$PATH
