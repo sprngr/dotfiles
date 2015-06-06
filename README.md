@@ -69,12 +69,12 @@ Then we need to find where `bash` lives
 $ brew ls bash
 ```
 
-We want the first line, at the time of writing it is `/usr/local/Cellar/bash/4.3.25/bin/bash`.
+We want the first line, at the time of writing it is `/usr/local/Cellar/bash/4.3.33/bin/bash`.
 
 In order to save ourselves time during upgrades, we will symlink it to `/bin/bash-brew`
 
 ```bash
-$ sudo ln -s /usr/local/Cellar/bash/4.3.25/bin/bash /bin/bash-brew
+$ sudo ln -s /usr/local/Cellar/bash/4.3.33/bin/bash /bin/bash-brew
 ```
 
 Next, `/bin/bash-brew` needs to be appended to the end of `/etc/shells` (requires sudo and your preferred editor).
@@ -90,10 +90,6 @@ Restart your terminal and bam, echo `$BASH_VERSION` to verify it is successfully
 Congrats, you have installed a new `bash` on OS X.
 
 If you ever have to upgrade via `brew`, just remember to update the symlink to `/bin/bash-brew`
-
-## Personal App Notes
-
-For SublimeText we use our own [Spacegray-Monokai](https://github.com/sprngr/spacegray-monokai) theme package.
 
 ### OSX specific
 
