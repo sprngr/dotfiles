@@ -10,6 +10,9 @@ export PATH=/usr/local/bin:$PATH
 # MySQL
 export PATH=/usr/local/mysql/bin:$PATH
 
+# Node
+export PATH=$HOME/.node/bin:$PATH
+
 # Heroku Toolbelt
 if [ -s "/usr/local/heroku/bin" ]; then
 
