@@ -38,11 +38,11 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 
 #### Installing brew-cask
 
-#### Brew packages
-
 ```bash
 $ brew install caskroom/cask/brew-cask
 ```
+
+#### Brew packages
 
 Current list of packages installed via `brew`:
 * brew-cask
