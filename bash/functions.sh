@@ -71,6 +71,10 @@ o() {
   fi
 }
 
+a() {
+	atom ${@:-'.'} 
+}
+
 # Create directory and cd to it.
 # source https://github.com/henrik/dotfiles
 mcd() {
