@@ -28,7 +28,7 @@ $ git clone git@github.com:sprngr/dotfiles.git ~/.dotfiles
 
 ### Brew
 
-For OS X we require `brew` for a lot of packages.
+For OS X we require `brew` & `brew-cask` for a lot of packages.
 
 #### Installing brew
 
@@ -36,10 +36,16 @@ For OS X we require `brew` for a lot of packages.
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ````
 
+#### Installing brew-cask
+
+```bash
+$ brew install caskroom/cask/brew-cask
+```
+
 #### Brew packages
 
 Current list of packages installed via `brew`:
-* bash
+* brew-cask
 * node
 * openssl
 * readline
@@ -54,46 +60,6 @@ $ brew update   # Updates brew's package listings
 $ brew oudated  # Tells you what packages are outdated
 $ brew upgrade  # Upgrades all packages installed
 ```
-
-#### Updating Bash
-
-Since OS X doesn't come with the most recent build of `bash`, we add it ourselves from `brew`.
-
-```bash
-$ brew install bash
-```
-
-Then we need to find where `bash` lives
-
-```bash
-$ brew ls bash
-```
-
-We want the first line, at the time of writing it is `/usr/local/Cellar/bash/4.3.25/bin/bash`.
-
-In order to save ourselves time during upgrades, we will symlink it to `/bin/bash-brew`
-
-```bash
-$ sudo ln -s /usr/local/Cellar/bash/4.3.25/bin/bash /bin/bash-brew
-```
-
-Next, `/bin/bash-brew` needs to be appended to the end of `/etc/shells` (requires sudo and your preferred editor).
-
-From there you need to change your default shell to the new one we added.
-
-```bash
-$ chsh -s /bin/bash-brew $USER
-```
-
-Restart your terminal and bam, echo `$BASH_VERSION` to verify it is successfully upgraded.
-
-Congrats, you have installed a new `bash` on OS X.
-
-If you ever have to upgrade via `brew`, just remember to update the symlink to `/bin/bash-brew`
-
-## Personal App Notes
-
-For SublimeText we use our own [Spacegray-Monokai](https://github.com/sprngr/spacegray-monokai) theme package.
 
 ### OSX specific
 
