@@ -17,7 +17,7 @@ if [ -s "/usr/local/heroku/bin" ]; then
 
 fi
 
-if [ -s "$HOME/.rvm/scripts/rvm" ]; then 
+if [ -s "$HOME/.rvm/scripts/rvm" ]; then
 	# RVM
 	export PATH=$HOME/.rvm/bin:$PATH
 
@@ -38,3 +38,6 @@ else
 	JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 	export PATH=$JAVA_HOME:$PATH
 fi
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh

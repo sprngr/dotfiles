@@ -14,15 +14,19 @@ reload(){
 
 # Utilities
 
+function b64() {
+  cat $1 | base64 | pbcopy;
+}
+
 # Allows me to easily jump to directories in my workspace
 # Will become deprecated by standalone bash script w/ autocomplete
-wk() { 
+wk() {
   cd ~/workspace/"$1"
 }
 
 # Create empty git repo w/ readme
 # Will be deprecated by mkgit project
-mkgit() { 
+mkgit() {
   mkdir "$1" && cd "$1" && echo "#$1" >> README.md
   git init && git add README.md
   git commit -m "Initialized $1 repo with README.md"
@@ -30,8 +34,8 @@ mkgit() {
 }
 
 # Simple math calculations
-calc() { 
-  echo "$*" | bc -l; 
+calc() {
+  echo "$*" | bc -l;
 }
 
 # vidsearch() searches Youtube for the string inputted and returns a VLC
@@ -72,7 +76,7 @@ o() {
 }
 
 a() {
-	atom ${@:-'.'} 
+	atom ${@:-'.'}
 }
 
 # Create directory and cd to it.
