@@ -3,7 +3,7 @@
 *nix enviornment configuration. A living package of my shell/OS configurations. Subject to change constantly (almost daily).
 
 ### Features
-* vim configurations
+* vim configurations (Needs to be replaced :|)
 	* if you're on linux, make sure `vim` is installed before running the installer
 * bash aliases for everything
 * way too many functions
