@@ -1,6 +1,6 @@
 # Dotfiles (Michael Springer)
 
-*nix enviornment configuration. A living package of my shell/OS configurations. Subject to change constantly (almost daily).
+*nix environment configuration. A living package of my shell/OS configurations. Subject to change constantly (almost daily).
 
 ### Features
 * vim configurations (Needs to be replaced :|)
@@ -64,8 +64,3 @@ $ brew upgrade  # Upgrades all packages installed
 ### OSX specific
 
 Swap terminal package with [iTerm2](http://iterm2.com/).
-
-For Mou we use the [base16](https://github.com/chriskempson/base16-mou) theme package.
-
-
-

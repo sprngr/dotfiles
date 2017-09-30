@@ -1,7 +1,7 @@
 #!/bin/bash
 # Environment
 
-if [ -s "$HOME/.rvm/scripts/rvm" ]; then 
+if [ -s "$HOME/.rvm/scripts/rvm" ]; then
 	# Unsetting GEM_HOME
 	unset GEM_HOME
 else

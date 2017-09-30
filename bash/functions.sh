@@ -20,6 +20,7 @@ function b64() {
 
 # Allows me to easily jump to directories in my workspace
 # Will become deprecated by standalone bash script w/ autocomplete
+# Eventually
 wk() {
   cd ~/workspace/"$1"
 }
@@ -36,30 +37,6 @@ mkgit() {
 # Simple math calculations
 calc() {
   echo "$*" | bc -l;
-}
-
-# vidsearch() searches Youtube for the string inputted and returns a VLC
-# playlist of the first page of results.
-# Made from the script posted by herringonrye.
-# Modified by sprngr for usage in OSX and Linux
-# Requires wget (brew install wget)
-vidsearch() {
-  if [ $# -ne 1 ]
-    then
-    echo "Usage: vidsearch <search query>"
-    echo "Note: the query may need to be in between quotation marks if it contains more than one word."
-  fi
-
-  if command -v vlc; then
-    if [ uname == 'Darwin']; then
-      wget -qO - "https://www.youtube.com/results?search_query=${1// /+}" | egrep -o "watch\?v=\S{11}" | uniq | sed -E 's/(.*)/http:\/\/youtube\.com\/\1/' | vlc -
-    else
-      wget -qO - "https://www.youtube.com/results?search_query=${1// /+}" | egrep -o "watch\?v=\S{11}" | uniq | sed -r 's/(.*)/http:\/\/youtube\.com\/\1/' | vlc -
-    fi
-  else
-    echo "bash: vlc command not found"
-    exit 1
-  fi
 }
 
 # OS X only:
@@ -130,7 +107,7 @@ __branch(){
 
 # Automatically prepends branch name to commit
 # Yells at you for using master
-branch:commit() {
+commit() {
   branch_name="$(__branch | tr '[:lower:]' '[:upper:]')"
 
   if [ $branch_name == 'MASTER' ]; then
@@ -140,12 +117,12 @@ branch:commit() {
   else
     commit_message="$branch_name $@"
 
-    git commit -am"$commit_message"
+    git commit -am "$commit_message"
   fi
 }
 
 # Inserts branch name into the push command, accepts first argument for push destination
-branch:push() {
+push() {
   branch_name="`__branch`"
 
   if [ -n "$1" ]; then
@@ -169,17 +146,3 @@ branch:copy(){
   __branch | pbcopy
   echo "Copied '$branch_name' to the clipboard"
 }
-
-# Custom Functions when feeling lazy
-
-# Background music
-music(){
-  if [ $(uname) == 'Darwin' ]; then
-
-    # Nujabes, Fat Jon, MF DOOM, and other things in that vein
-    o "https://www.youtube.com/watch?v=c3fZ8LXNs_E&list=PLB1sd3sGSGbxpPK70WivgkaMPJdnyrsPQ"
-  fi
-}
-
-# Includes bang-functions.sh
-source $DOTFILES/bash/lib/bang-functions.sh
