@@ -46,7 +46,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias back='cd -'
 
-# ls 
+# ls
 if ls --color -d . >/dev/null 2>&1; then
   alias ls='ls --color=auto'  # Linux
 elif ls -G -d . >/dev/null 2>&1; then
@@ -67,7 +67,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# New Commands 
+# New Commands
 # source https://wiki.archlinux.org/index.php/Bash#Aliases
 alias more='less'
 alias df='df -h'
@@ -80,22 +80,14 @@ alias du1='du --max-depth=1'
 alias hist='history | grep'         # requires an argument
 alias pgg='ps -Af | grep'           # requires an argument
 
-# Make Bash error tolerant
+# Make Bash 'error' tolerant
 alias :q=' exit'
 alias :Q=' exit'
 alias :x=' exit'
 alias cd..='cd ..'
 
-# Linux Application launchers
-if [ $(uname) == 'Linux' ]; then
-	alias teamspeak='~/apps/TeamSpeak3/ts3client_runscript.sh'
-	alias idea='~/apps/idea/bin/idea.sh'
-fi
-
 # Mac Application launchers
 if [ $(uname) == 'Darwin' ]; then
-	alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-	alias subl='/Applications/Sublime\ Text\ 2.app/Contents/MacOS/Sublime\ Text\ 2'
+	alias atom='/Applications/Atom\ Beta.app/Contents/MacOS/Atom\ Beta'
 	alias chrome='open -a /Applications/Google\ Chrome.app'
 fi
-
