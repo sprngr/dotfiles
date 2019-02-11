@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # dot
 #
@@ -40,8 +40,11 @@ done
 
 export ZSH=$HOME/.dotfiles
 
-# Set macOS defaults
-$ZSH/macos/set-defaults.sh
+# Set macOS defaults if macOS
+if test "$(uname)" = "Darwin"
+then
+	$ZSH/macos/set-defaults.sh
+fi
 
 # Install homebrew
 $ZSH/homebrew/install.sh 2>&1
