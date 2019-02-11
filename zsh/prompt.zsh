@@ -37,7 +37,7 @@ directory_name() {
 }
 
 prompt_indicator() {
-  echo "%(?:%{$green_bold%}$prompt_symbol :%{$red_bold%}$prompt_symbol %s)"
+  echo "%(?:%{$green_bold%}$prompt_symbol :%{$red_bold%}$prompt_symbol %s)%{$reset_color%}"
 }
 
 # Git prompt magic
