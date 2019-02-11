@@ -21,14 +21,14 @@ local white_bold=$fg_bold[white]
 
 local highlight_bg=$bg[red]
 
-local prompt_symbol='ロ'
+local prompt_symbol='→'
 
 box_name() {
   [ -f ~/.box-name ] && cat ~/.box-name || echo $HOST
 }
 
 user_info() {
-  echo "%{$cyan%}%n%{$white%}@%{$green%}$(box_name)"
+  echo "%{$blue%}%n%{$white%}@%{$red%}$(box_name)"
 }
 
 directory_name() {
@@ -160,7 +160,7 @@ git_status() {
     fi
 }
 
-export PROMPT=$'\n$(user_info) $(directory_name) $(git_dirty)$(git_status)$(git_need_push)\n$(prompt_indicator)'
+export PROMPT=$'$(user_info) $(directory_name) $(git_dirty)$(git_status)$(git_need_push)\n$(prompt_indicator)'
 set_prompt() {
   export RPROMPT="%{$cyan%}%*%{$reset_color%}"
 }
