@@ -1,0 +1,18 @@
+#!/bin/zsh
+#
+# This lets you quickly jump into a project directory.
+#
+# Type:
+#
+#   wk <tab>
+#
+# ...to autocomplete on all of your projects in the directories specified in
+# `functions/_wk`. Typically I'm using it like:
+#
+#    wk sprn<tab>/do<tab>
+#
+# ...to quickly jump into holman/boom, for example.
+#
+# Renamed from to wk match my previous "workspace" command
+
+cd "$PROJECTS/$1"
