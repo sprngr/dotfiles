@@ -1,3 +1,4 @@
 brew 'ack'
-brew 'antibody'
+brew 'coreutils'
+brew 'node'
 brew 'yarn'

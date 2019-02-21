@@ -19,29 +19,18 @@ local magenta_bold=$fg_bold[magenta]
 local cyan_bold=$fg_bold[cyan]
 local white_bold=$fg_bold[white]
 
-local highlight_bg=$bg[red]
-
-local prompt_symbol='ロ'
-
-box_name() {
-  [ -f ~/.box-name ] && cat ~/.box-name || echo $HOST
-}
-
-user_info() {
-  echo "%{$cyan%}%n%{$white%}@%{$green%}$(box_name)"
-}
+local prompt_symbol='→'
 
 directory_name() {
   current_dir="${PWD/#$HOME/~}"
-  echo "%{$yellow_bold%}$current_dir%{$reset_color%}"
+  echo "[%{$blue_bold%}$current_dir%{$reset_color%}]"
 }
 
 prompt_indicator() {
-  echo "%(?:%{$green_bold%}$prompt_symbol :%{$red_bold%}$prompt_symbol %s)%{$reset_color%}"
+  echo "%(?:%{$green_bold%}$prompt_symbol%{$reset_color%} :%{$red_bold%}$prompt_symbol%{$reset_color%} )"
 }
 
 # Git prompt magic
-
 if (( $+commands[git] ))
 then
   git="$commands[git]"
@@ -49,16 +38,13 @@ else
   git="/usr/bin/git"
 fi
 
-# Git status indicators
-GIT_PROMPT_ADDED="%{$green_bold%}+"
-GIT_PROMPT_DELETED="%{$red_bold%}-"
-GIT_PROMPT_MODIFIED="%{$magenta_bold%}*"
-GIT_PROMPT_RENAMED="%{$blue_bold%}>"
-GIT_PROMPT_UNMERGED="%{$cyan_bold%}="
-GIT_PROMPT_UNTRACKED="%{$yellow_bold%}?"
-
 git_branch() {
   echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
+}
+
+git_prompt_info() {
+  ref=$($git symbolic-ref HEAD 2>/dev/null) || return
+  echo "${ref#refs/heads/}"
 }
 
 git_dirty() {
@@ -68,9 +54,9 @@ git_dirty() {
   else
     if [[ $($git status --porcelain) == "" ]]
     then
-      echo "on %{$green_bold%}$(git_prompt_info)%{$reset_color%}"
+      echo "[%{$green_bold%}$(git_prompt_info)%{$reset_color%}]"
     else
-      echo "on %{$red_bold%}$(git_prompt_info)%{$reset_color%}"
+      echo "[%{$red_bold%}$(git_prompt_info)%{$reset_color%}]"
     fi
   fi
 }
@@ -87,15 +73,18 @@ git_need_push() {
     then
       echo " "
     else
-      echo " with %{$magenta_bold%}$number unpushed%{$reset_color%}"
+      echo " %{$magenta_bold%}$number unpushed%{$reset_color%}"
     fi
   fi
 }
 
-git_prompt_info() {
-  ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-  echo "${ref#refs/heads/}"
-}
+# Git status indicators
+GIT_PROMPT_ADDED="%{$green_bold%}+"
+GIT_PROMPT_DELETED="%{$red_bold%}-"
+GIT_PROMPT_MODIFIED="%{$magenta_bold%}*"
+GIT_PROMPT_RENAMED="%{$blue_bold%}>"
+GIT_PROMPT_UNMERGED="%{$cyan_bold%}="
+GIT_PROMPT_UNTRACKED="%{$yellow_bold%}?"
 
 # Get the status of the working tree
 # Borrowed from https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/git.zsh
@@ -154,13 +143,13 @@ git_status() {
     if [[ -n $(git rev-parse --is-inside-work-tree 2>/dev/null) ]]; then
         local git_status="$(git_prompt_status)"
         if [[ -n $git_status ]]; then
-            git_status=" [$git_status%{$reset_color%}]"
+            git_status="[$git_status%{$reset_color%}]"
         fi
         echo $git_status
     fi
 }
 
-export PROMPT=$'\n$(user_info) $(directory_name) $(git_dirty)$(git_status)$(git_need_push)\n$(prompt_indicator)'
+export PROMPT=$'$(directory_name)$(git_dirty)$(git_status)$(git_need_push)\n$(prompt_indicator)%u'
 set_prompt() {
   export RPROMPT="%{$cyan%}%*%{$reset_color%}"
 }
