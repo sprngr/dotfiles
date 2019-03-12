@@ -85,6 +85,10 @@ GIT_PROMPT_MODIFIED="%{$magenta_bold%}*"
 GIT_PROMPT_RENAMED="%{$blue_bold%}>"
 GIT_PROMPT_UNMERGED="%{$cyan_bold%}="
 GIT_PROMPT_UNTRACKED="%{$yellow_bold%}?"
+GIT_PROMPT_STASHED="%{$blue_bold%}⚑"
+GIT_PROMPT_AHEAD="%{$green_bold%}↑"
+GIT_PROMPT_BEHIND="%{$magenta_bold%}↓"
+GIT_PROMPT_DIVERGED="%{$red_bold%}↕"
 
 # Get the status of the working tree
 # Borrowed from https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/git.zsh
