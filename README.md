@@ -18,7 +18,7 @@ This setup does require `brew` to exist, if you wish to use this in its entirety
 
 More info on [Homebrew](https://brew.sh/) & [Linuxbrew](https://docs.brew.sh/Homebrew-on-Linux) can be found here.
 
-## Installation
+## Install
 
 Run this:
 
