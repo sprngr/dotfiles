@@ -27,7 +27,8 @@ git fetch --tags > /dev/null 2>&1 || {
 
 ## now we should be able to determine the latest git tag for this repository
 ## so list all tags, match against our tag-naming convention, sort this nonsense and keep the last one
-latest="$(git tag -l | egrep "^\d{1}\.\d+\.\d+$" | sort -t . -k 1,1n -k 2,2n -k 3,3n | tail -1)"
+## change the last integer in the version to .x
+latest="$(git tag -l --sort "v:refname" | grep -E '^[0-9]{1,3}.[0-9]+.[0-9]+$' | tail -1 | sed -E 's/^([0-9]+.[0-9]+.)[0-9]+$/\1x/')"
 
 ## make sure the git command didn't fail (can't check $? here because that's the return status of the tail cmd)
 ## if any other commands failed, something is probably fundamentally wrong.
@@ -36,6 +37,6 @@ latest="$(git tag -l | egrep "^\d{1}\.\d+\.\d+$" | sort -t . -k 1,1n -k 2,2n -k 
     echo -e "${RED_B}ERROR:${RESET} Unable to get the latest tag for the ${YELLOW_B}$(basename $(git rev-parse --show-toplevel))${RESET} repository" >&2 && exit 1
 }
 
-echo "$latest"
+git checkout $latest && git pull origin $latest
 
 exit 0

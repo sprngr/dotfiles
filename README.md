@@ -1,66 +1,50 @@
-# Dotfiles (Michael Springer)
+# :shell: dotfiles
 
-*nix environment configuration. A living package of my shell/OS configurations. Subject to change constantly (almost daily).
+> *nix environment configuration
 
-### Features
-* vim configurations (Needs to be replaced :|)
-	* if you're on linux, make sure `vim` is installed before running the installer
-* bash aliases for everything
-* way too many functions
-* environment settings
-* git completion
-* custom prompt with awesome stuff
-* a partial reimplementation of DuckDuckGo's Bang Commands
-* a script that opens a random page to a lipsum generator
-* scripts for homebrew service management <https://github.com/mitchellnemitz/bash-brew-service>
+Part shareable collection, part living and growing personal configurations.
 
+## Dependencies
 
-Feel free to use anything from it!
+### zsh
 
-### How to Install
+If you wish to utilize my dotfiles for your own, or you happen to be future me installing this once again - be sure to get `zsh` setup before continuing.
 
-To install, clone it to a directory named `.dotfiles` in your home directory, then run `~/.dotfiles/install.sh`.
-You can name it whatever, this is just the name I use.
+This is a nifty guide to [zsh installation instructions](https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e) across different systems.
 
-```bash
-$ git clone git@github.com:sprngr/dotfiles.git ~/.dotfiles
+### brew
+
+This setup does require `brew` to exist, if you wish to use this in its entirety you can just run the following instructions to install. Otherwise delete the `homebrew` directory and `Brewfile`.
+
+More info on [Homebrew](https://brew.sh/) & [Linuxbrew](https://docs.brew.sh/Homebrew-on-Linux) can be found here.
+
+## Installation
+
+Run this:
+
+```sh
+git clone https://github.com/sprngr/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+script/bootstrap
 ```
 
-### Brew
+This will symlink the appropriate files in `.dotfiles` to your home directory.
+Everything is configured and tweaked within `~/.dotfiles`.
 
-For OS X we require `brew` & `brew-cask` for a lot of packages.
+The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
+which sets up a few paths that'll be different on your particular machine.
 
-#### Installing brew
+`dot` is a simple script that installs some dependencies, sets sane macOS
+defaults, and so on. Tweak this script, and occasionally run `dot` from
+time to time to keep your environment fresh and up-to-date. You can find
+this script in `bin/`.
 
-```bash
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-````
+This setup supports a `~/.localrc` file for customizations you don't want to commit, such as specific environment variables that should not be exposed to the public.
 
-#### Installing brew-cask
+## Acknowledgments
 
-```bash
-$ brew install caskroom/cask/brew-cask
-```
+Very heavily inspired by [holman/dotfiles](https://github.com/holman/dotfiles), in fact I think at one point it had started as a fork of it - also includes work by many many others, so many I can't remember them all. Individual scripts I have borrowed will include attributions as well.
 
-#### Brew packages
+## License
 
-Current list of packages installed via `brew`:
-* brew-cask
-* node
-* openssl
-* readline
-* wget
-
-##### Updating Brew Packages
-
-Anytime you need to update a package managed by `brew`, run the following:
-
-```bash
-$ brew update   # Updates brew's package listings
-$ brew oudated  # Tells you what packages are outdated
-$ brew upgrade  # Upgrades all packages installed
-```
-
-### OSX specific
-
-Swap terminal package with [iTerm2](http://iterm2.com/).
+[MIT](LICENSE), unless specified otherwise.

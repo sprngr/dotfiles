@@ -1,0 +1,4 @@
+#compdef wk
+_files -W $PROJECTS -/
+
+# See further documentation in `functions/wk`.
