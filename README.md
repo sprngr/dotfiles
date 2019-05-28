@@ -1,12 +1,10 @@
 # :shell: dotfiles
 
-*nix environment configuration for Linux and macOS using zsh.
-
-## Motivation
+> *nix environment configuration
 
 Part shareable collection, part living and growing personal configurations.
 
-## Setup & Usage
+## Dependencies
 
 ### zsh
 
@@ -14,4 +12,39 @@ If you wish to utilize my dotfiles for your own, or you happen to be future me i
 
 This is a nifty guide to [zsh installation instructions](https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e) across different systems.
 
-### Antibody
+### brew
+
+This setup does require `brew` to exist, if you wish to use this in its entirety you can just run the following instructions to install. Otherwise delete the `homebrew` directory and `Brewfile`.
+
+More info on [Homebrew](https://brew.sh/) & [Linuxbrew](https://docs.brew.sh/Homebrew-on-Linux) can be found here.
+
+## Installation
+
+Run this:
+
+```sh
+git clone https://github.com/sprngr/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+script/bootstrap
+```
+
+This will symlink the appropriate files in `.dotfiles` to your home directory.
+Everything is configured and tweaked within `~/.dotfiles`.
+
+The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
+which sets up a few paths that'll be different on your particular machine.
+
+`dot` is a simple script that installs some dependencies, sets sane macOS
+defaults, and so on. Tweak this script, and occasionally run `dot` from
+time to time to keep your environment fresh and up-to-date. You can find
+this script in `bin/`.
+
+This setup supports a `~/.localrc` file for customizations you don't want to commit, such as specific environment variables that should not be exposed to the public.
+
+## Acknowledgments
+
+Very heavily inspired by [holman/dotfiles](https://github.com/holman/dotfiles), in fact I think at one point it had started as a fork of it - also includes work by many many others, so many I can't remember them all. Individual scripts I have borrowed will include attributions as well.
+
+## License
+
+[MIT](LICENSE), unless specified otherwise.
