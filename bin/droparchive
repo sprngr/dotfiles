@@ -1,9 +1,0 @@
-IN=$1
-OUT=/home/sprngr/Dropbox/archive/$2
-
-FILES=$IN/*
-for f in $FILES
-do
-    LAST_MODIFIED=date -r $f +%Y
-    7za a -t7z -mx9 "$OUT/LAST_MODIFIED/$(basename $f).7z" $f
-done

@@ -1,0 +1,15 @@
+#!/bin/sh
+IN="$1"
+OUT=/home/sprngr/Dropbox/archive/$2
+
+[ ! -d $OUT ] && mkdir $OUT
+
+FILES=$IN/*
+for f in $FILES
+do
+    LAST_MODIFIED=$(date -r $f +%Y)
+
+    [ ! -d $OUT/$LAST_MODIFIED ] && mkdir $OUT/$LAST_MODIFIED
+
+    7za a -t7z -mx9 "$OUT/$LAST_MODIFIED/$(basename $f).7z" $f
+done
