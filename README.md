@@ -12,12 +12,6 @@ If you wish to utilize my dotfiles for your own, or you happen to be future me i
 
 This is a nifty guide to [zsh installation instructions](https://gist.github.com/derhuerst/12a1558a4b408b3b2b6e) across different systems.
 
-### brew
-
-This setup does require `brew` to exist, if you wish to use this in its entirety you can just run the following instructions to install. Otherwise delete the `homebrew` directory and `Brewfile`.
-
-More info on [Homebrew](https://brew.sh/) & [Linuxbrew](https://docs.brew.sh/Homebrew-on-Linux) can be found here.
-
 ## Install
 
 Run this:
