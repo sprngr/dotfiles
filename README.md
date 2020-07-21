@@ -35,6 +35,18 @@ this script in `bin/`.
 
 This setup supports a `~/.localrc` file for customizations you don't want to commit, such as specific environment variables that should not be exposed to the public.
 
+## Issues/Fixes
+
+### MacOS Catalina
+
+
+If `compinit` issues pop up about insecure directories:
+
+```shell
+$ compaudit | xargs chmod g-w
+```
+((Reference))[https://github.com/zsh-users/zsh-completions/issues/680#issuecomment-612960481]
+
 ## Acknowledgments
 
 Very heavily inspired by [holman/dotfiles](https://github.com/holman/dotfiles), in fact I think at one point it had started as a fork of it - also includes work by many many others, so many I can't remember them all. Individual scripts I have borrowed will include attributions as well.
