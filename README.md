@@ -45,7 +45,7 @@ If `compinit` issues pop up about insecure directories:
 ```shell
 $ compaudit | xargs chmod g-w
 ```
-((Reference))[https://github.com/zsh-users/zsh-completions/issues/680#issuecomment-612960481]
+[(Reference)](https://github.com/zsh-users/zsh-completions/issues/680#issuecomment-612960481)
 
 ## Acknowledgments
 
